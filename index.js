@@ -35,7 +35,7 @@ module.exports.filterByCannotBeCancelled = internals.filterByCannotBeCancelled =
       b.status === internals.types.PASSENGER_ON_BOARD ||
       b.status === internals.types.DROP ||
       b.status === internals.COMPLETED ||
-      b.status === internals.CANCELLED
+      b.status === internals.CANCELLED;
   });
 };
 
