@@ -1,6 +1,7 @@
 const internals = {};
 
 module.exports.types = internals.types = {
+  DRAFT: 'draft',
   INCOMING: 'incoming',
   DISPATCHED: 'dispatched',
   CONFIRMED: 'confirmed',
@@ -22,6 +23,7 @@ module.exports.filterByCanBeCancelled = internals.filterByCanBeCancelled = (book
 
 module.exports.canBeCancelled = internals.canBeCancelled = (status) => {
   return status === internals.types.INCOMING ||
+    status === internals.types.DRAFT ||
     status === internals.types.DISPATCHED ||
     status === internals.types.CONFIRMED ||
     status === internals.ON_THE_WAY;
