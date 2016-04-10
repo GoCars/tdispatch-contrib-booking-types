@@ -17,6 +17,18 @@ module.exports.types = internals.types = {
   CANCELLED: 'cancelled'
 };
 
+module.exports.readableStatuses = internals.readableStatuses = {
+  'draft': 'your booking is currently being processed',
+  'incoming': 'your booking is currently being processed',
+  'dispatched': 'your booking is currently being assigned to a driver',
+  'on_way_to_job': 'your driver is on the way',
+  'arrived_waiting': 'your driver is outside and waiting',
+  'passenger_on_board': 'the passenger is on board',
+  'drop': 'the passenger has been dropped off',
+  'completed': 'the booking has been completed',
+  'cancelled': 'the booking has been cancelled'
+};
+
 module.exports.filterByCanBeCancelled = internals.filterByCanBeCancelled = (bookings) => {
   return bookings.filter(b => { return internals.canBeCancelled(b.status); });
 };
@@ -29,7 +41,7 @@ module.exports.canBeCancelled = internals.canBeCancelled = (status) => {
     status === internals.types.ON_THE_WAY;
 };
 
-module.exports.canBeCancelledRegex = /(completed|incoming|cancelled|on_the_way|arrived_waiting)/;
+module.exports.canBeCancelledRegex = /(completed|incoming|cancelled|on_way_to_job|arrived_waiting)/;
 
 module.exports.filterByCannotBeCancelled = internals.filterByCannotBeCancelled = (bookings) => {
   return bookings.filter(b => {
@@ -43,4 +55,13 @@ module.exports.filterByCannotBeCancelled = internals.filterByCannotBeCancelled =
 
 module.exports.filterByType = internals.filterByType = (bookings, type) => {
   return bookings.filter(b => b.status === type);
+};
+
+module.exports.readableStatus = internals.readableStatus = (status) => {
+  const readableStatus = internals.readableStatuses[status];
+  if (!readableStatus) {
+    return '';
+  }
+
+  return readableStatus;
 };
