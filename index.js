@@ -18,9 +18,9 @@ module.exports.types = internals.types = {
 };
 
 module.exports.readableStatuses = internals.readableStatuses = {
-  'draft': 'your booking is currently being processed',
-  'incoming': 'your booking is currently being processed',
-  'dispatched': 'your booking is currently being assigned to a driver',
+  'draft': 'booking is being processed',
+  'incoming': 'booking is being processed',
+  'dispatched': 'booking is being assigned to a driver',
   'on_way_to_job': 'your driver is on the way',
   'arrived_waiting': 'your driver is outside and waiting',
   'passenger_on_board': 'the passenger is on board',
