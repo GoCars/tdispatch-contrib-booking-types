@@ -29,7 +29,7 @@ module.exports.canBeCancelled = internals.canBeCancelled = (status) => {
     status === internals.ON_THE_WAY;
 };
 
-module.exports.canBeCancelledRegex = /(completed|incoming|cancelled|on_the_way|outside_and_waiting)/;
+module.exports.canBeCancelledRegex = /(completed|incoming|cancelled|on_the_way|arrived_waiting)/;
 
 module.exports.filterByCannotBeCancelled = internals.filterByCannotBeCancelled = (bookings) => {
   return bookings.filter(b => {
