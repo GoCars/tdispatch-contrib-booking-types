@@ -26,7 +26,7 @@ module.exports.canBeCancelled = internals.canBeCancelled = (status) => {
     status === internals.types.DRAFT ||
     status === internals.types.DISPATCHED ||
     status === internals.types.CONFIRMED ||
-    status === internals.ON_THE_WAY;
+    status === internals.types.ON_THE_WAY;
 };
 
 module.exports.canBeCancelledRegex = /(completed|incoming|cancelled|on_the_way|arrived_waiting)/;
